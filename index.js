@@ -16,11 +16,15 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+function dosyaAdiniBul(path) {
+  let bolunmusPath = path.split("/");
+  let sonHali = bolunmusPath[bolunmusPath.length - 1];
+  return sonHali;
 }
+console.log(dosyaAdiniBul("C:/Users/johnsmith/Music/Beethoven_5.mp3"));
 
 /*
+
   GÖREV 2
   - Input:  Bir sayı arrayini parametre olarak alacak bir fonksiyon oluştur.
   - Output: Yazacağın fonksiyon input olarak aldığı sayı arrayinin aritmetik ortalamasını dönmeli.
@@ -38,9 +42,17 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamaBul(sayiArr) {
+  if (sayiArr === 0) {
+    return null;
+  } else {
+    let toplamSayi = sayiArr.reduce((item, a) => item + a, 0);
+    let arOrtalama = toplamSayi / sayiArr.length;
+    return arOrtalama;
+  }
 }
+const sayilar = [109, 216, 288, 143, 71, 185, -278, 194, 5];
+console.log(ortalamaBul(sayilar));
 
 /*
   GÖREV 3
@@ -62,9 +74,16 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamadanBuyukleriBul(sayiArray, ortalamaBulma) {
+  let arOrtalama = ortalamaBulma(sayiArray);
+  if (sayiArray.length === 0) {
+    return null;
+  } else {
+    return sayiArray.filter((sayi) => sayi >= arOrtalama);
+  }
 }
+
+console.log(ortalamadanBuyukleriBul(sayilar, ortalamaBul));
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
 function as() {
